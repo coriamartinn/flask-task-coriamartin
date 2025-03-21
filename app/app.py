@@ -34,6 +34,7 @@ def agregar_tarea():
         cur.execute('INSERT INTO tareas (titulo, descripcion, estado) VALUES (%s, %s, %s)',
                     (titulo, descripcion, estado))
         mysql.connection.commit()
+        flash('Se agregó correctamente la tarea', "success")
         return redirect(url_for('index'))
     return render_template('agregar_tarea.html')
 
